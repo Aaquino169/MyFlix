@@ -19,14 +19,19 @@ mongoose.connect(mongodbURI,{
     console.log('connected to mongo')
 })
 
-//homepage
-app.get('/',(req,res) => {
-    res.send('home page')
-})
+//import controllers
+const moviesController = require('./controllers/movies')
+app.use('/homepage',moviesController)
+
+const usersController = require('./controllers/users')
+app.use('/users', usersController)
+
+const sessionsController = require('./controllers/sessions')
+app.use('/sessions',sessionsController)
 
 
 app.listen(PORT, () => {
-    console.log('App is using port:', PORT)
+    console.log('App is running')
 })
 
 
