@@ -4,10 +4,17 @@ const router = express.Router()
 
 const Movie = require('../models/movies')
 
+//index
 router.get('/',(req,res) => {
-    res.render('movies/home.ejs')
-})
+    Movie.find({},(error,allMovies) => {
+        res.render('movies/home.ejs', {
+            movies: allMovies
+        })
+    })
 
+    
+})
+//seed
 router.get('/seed',(req,res) => {
     Movie.create([
         {
@@ -229,8 +236,20 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Gwyneth Paltrow, Don Cheadle, Guy Pearce, Rebecca Hall, Stephanie Szostak',
             icon:'https://wallpaperaccess.com/full/259316.jpg',
-        },
-    ])
+        }
+    ], (err,data) => {
+        res.redirect('/homepage')
+    })
+})
+
+//show
+router.get('/:id',(req,res) => {
+    Movie.findById(req.params.id, (err,targetMovie) => {
+        console.log(targetMovie)
+        res.render('movies/show.ejs',{
+            movie: targetMovie
+        })
+    })
 })
 
 

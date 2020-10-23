@@ -13,6 +13,12 @@ const mongodbURI = process.env.MONGODBURI
 
 const db = mongoose.connection
 
+const bodyParser = require('body-parser')
+//Middleware
+app.use(express.urlencoded({extended:true}))
+
+app.use(express.static('public'))
+
 //mongoose connection
 mongoose.connect(mongodbURI,{
     useFindAndModify:false,

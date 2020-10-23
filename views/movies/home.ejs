@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/C4985C608BA88E6AD080AEE79C0192B35AFC59889EFD938A761F813FB014DDF4/scale?width=1440&aspectRatio=1.78" alt="">
+    <ul>
+        <% for(let i = 0; i < movies.length; i++){ %>
+            <li>
+                    <img src=<%= movies[i].icon%> alt="" onclick="location.href='/homepage/<%= movies[i].id;%>'">    
+            </li>
+        <% } %>
+    </ul>
 </body>
 </html>
