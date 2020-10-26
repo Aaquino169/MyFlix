@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+}
+.topLogo {
+    text-align: center;
+}
+.moviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+
+}
+.iconContainer {
+    border: solid 3px blanchedalmond;
+    display: flex;
+    flex-direction: row;
+    width: 1080px;
+    margin: auto;
+}
+.iconImg {
+    width: 600px;
+}
+
+/* white text */
+.text {
+    color: blanchedalmond;
+    text-align: center;
+    margin: auto;
+    
+}
+
+/* show page */
+
+.backgroundImg {
+    width: 1350px;
+}
+
+.showInfo {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.staffInfo {
+    width: 100px;
+}

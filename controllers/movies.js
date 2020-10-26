@@ -8,11 +8,10 @@ const Movie = require('../models/movies')
 router.get('/',(req,res) => {
     Movie.find({},(error,allMovies) => {
         res.render('movies/home.ejs', {
-            movies: allMovies
+            movie: allMovies,
+            currentUser: req.session.currentUser 
         })
     })
-
-    
 })
 //seed
 router.get('/seed',(req,res) => {
@@ -238,7 +237,7 @@ router.get('/seed',(req,res) => {
             icon:'https://wallpaperaccess.com/full/259316.jpg',
         }
     ], (err,data) => {
-        res.redirect('/homepage')
+        res.redirect('/movies')
     })
 })
 
@@ -247,7 +246,8 @@ router.get('/:id',(req,res) => {
     Movie.findById(req.params.id, (err,targetMovie) => {
         console.log(targetMovie)
         res.render('movies/show.ejs',{
-            movie: targetMovie
+            movie: targetMovie,
+            currentUser: req.session.currentUser 
         })
     })
 })

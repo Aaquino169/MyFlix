@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/homepage"></a>
-    <div>
-        <img src=<%=movie['title img']%> alt="">
-        <h1><%= movie.title%></h1>
-        <h2><%= movie.description%></h2>
-        <img src=<%= movie.img%> alt="">
-        <p><%= movie.director%></p>
-        <h3><%= movie.genre%></h3>
-        <p><%= movie.staring%></p>
+
+    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/nav.ejs') %>
+    <div class="showContainer" >
+        <div class="topLogo" style="background-image: url(<%= movie.img%>)">
+            <img src=<%=movie['title img']%> alt="">
+        </div>
+        <!-- <img class="backgroundImg" src=<%= movie.img%> alt=""> -->
+        <div class="showInfo">  
+            <div class="text">
+                <h1><%= movie.title%></h1>
+                <h2><%= movie.description%></h2>
+            </div>
+            <div class="text" id="staffInfo">
+                <fieldset>
+                    Director:
+                    <p><%= movie.director%></p>
+                </fieldset>
+                <fieldset>
+                    Genre:
+                    <h3><%= movie.genre%></h3>
+                </fieldset>
+                <fieldset>
+                    Starring:
+                    <p><%= movie.staring%></p>
+                </fieldset>
+            </div>
+        </div>
     </div>
 </body>
 </html>

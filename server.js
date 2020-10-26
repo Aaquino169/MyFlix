@@ -26,9 +26,9 @@ app.use(express.static('public'))
 
 app.use(
     session({
-      secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
-      resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
-      saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false
     })
   )
 //mongoose connection
@@ -42,7 +42,7 @@ mongoose.connect(mongodbURI,{
 
 //import controllers
 const moviesController = require('./controllers/movies')
-app.use('/homepage',moviesController)
+app.use('/movies',moviesController)
 
 const usersController = require('./controllers/users')
 app.use('/users', usersController)
@@ -50,8 +50,14 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions')
 app.use('/sessions',sessionsController)
 
-const userController = require('./controllers/users')
-app.use('/users', userController)
+app.get('/', (req, res) => {
+    res.render('userHome.ejs', { 
+        currentUser: req.session.currentUser,
+        
+    })
+  })
+
+
 
 
 app.listen(PORT, () => {
