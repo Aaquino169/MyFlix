@@ -39,20 +39,20 @@ app.use(
 mongoose.connect(mongodbURI,{
     useFindAndModify:false,
     useNewUrlParser:true,
-    useUnifiedTopology:false
+    useUnifiedTopology:true
 },() => {
     console.log('connected to mongo')
 })
 
 //import controllers
 const moviesController = require('./controllers/movies')
-app.use('/',moviesController)
+app.use('/', moviesController)
 
 const usersController = require('./controllers/users')
 app.use('/users', usersController)
 
 const sessionsController = require('./controllers/sessions')
-app.use('/sessions',sessionsController)
+app.use('/sessions', sessionsController)
 
 
 app.listen(PORT, () => {
