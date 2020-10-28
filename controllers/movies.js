@@ -298,5 +298,12 @@ router.get('/:id',(req,res) => {
     })
 })
 
+//delete route
+router.delete('/:id',(req, res) => {
+    Movie.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect('/')
+    })
+  })
+
 
 module.exports = router
