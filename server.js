@@ -46,7 +46,7 @@ mongoose.connect(mongodbURI,{
 
 //import controllers
 const moviesController = require('./controllers/movies')
-app.use('/movies',moviesController)
+app.use('/',moviesController)
 
 const usersController = require('./controllers/users')
 app.use('/users', usersController)

@@ -1,9 +1,9 @@
 <nav>
     <ul >
-        <li><a href="/movies">Home</a></li>
+        <li><a href="/">Home</a></li>
         <% if (currentUser) { %>
         <li>Welcome <%= currentUser.username %></li>
-        <li><a href="/movies/new">Add A Movie</a></li>
+        <li><a href="/new">Add A Movie</a></li>
         <li >
           <form action="/sessions?_method=DELETE" method="POST">
             <input class="btn" type="submit" value="Log Out" class="btn-small red" />
