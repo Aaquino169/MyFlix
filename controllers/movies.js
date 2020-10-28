@@ -15,6 +15,7 @@ router.get('/',(req,res) => {
         })
     })
 })
+
 //create
 router.get('/new', (req, res) => {
 	res.render('movies/new.ejs', { 
@@ -23,10 +24,13 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-	Movie.create(req.body, (error, createdFruit) => {
-		res.redirect('/movie')
+	Movie.create(req.body, (error, createMovie) => {
+        console.log(createMovie)
+		res.redirect('/')
 	})
 })
+
+
 // router.post('/addFavorite', (req,res) => {
 //     User.favorites.create(req.body, (err,favoriteMovie) => {
 //         res.redirect('/user/home')

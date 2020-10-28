@@ -2,7 +2,7 @@
     <ul >
         <li><a href="/">Home</a></li>
         <% if (currentUser) { %>
-        <li>Welcome <%= currentUser.username %></li>
+        <li><a href="/">Welcome <%= currentUser.username %></a></li>
         <li><a href="/new">Add A Movie</a></li>
         <li >
           <form action="/sessions?_method=DELETE" method="POST">

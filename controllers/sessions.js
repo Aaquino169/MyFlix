@@ -13,10 +13,10 @@ sessions.post('/', (req, res) => {
     // Database error
     if (err) {
       console.log(err)
-      res.send('<a  href="/movies">Sorry, an error occurred </a>')
+      res.send('<a  href="/">Sorry, an error occurred </a>')
     } else if (!foundUser) {
       // if found user is undefined/null not found etc
-      res.send('<a  href="/movies">Sorry, no user found </a>')
+      res.send('<a  href="/">Sorry, no user found </a>')
     } else {
       // user is found yay!
       // now let's check if passwords match
@@ -24,10 +24,10 @@ sessions.post('/', (req, res) => {
         // add the user to our session
         req.session.currentUser = foundUser
         // redirect back to our home page
-        res.redirect('/movies')
+        res.redirect('/')
       } else {
         // passwords do not match
-        res.send('<a href="/movies"> password does not match </a>')
+        res.send('<a href="/"> password does not match </a>')
       }
     }
   })
@@ -36,7 +36,7 @@ sessions.post('/', (req, res) => {
 sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
     console.log("check")
-    res.redirect('/movies')
+    res.redirect('/')
   })
 })
 

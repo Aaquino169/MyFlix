@@ -2,21 +2,18 @@
 <%- include('../partials/nav.ejs') %>
 
         <h1>Add New Movie</h1>
-        <form action="/movies" method="POST">
-            <input type="text" name="name" />
-        title:{type:String, require:true},
-        "title img":{type:String, require:true},
-        img:{type:String, require:true},
-        "release date":{type:Number, require:true},
-        description:{type:String, required:true},
-        director:{type:String, require:true},
-        genre:{type:String, require:true},
-        staring:{type:String, require:true},
-        icon:{type:String, require:true},
-            Name: <input type="text" name="name" /><br/>
-            Color: <input type="text" name="color" /><br/>
-            Is Ready To Eat: <input type="checkbox" name="readyToEat" /><br/>
-            <input type="submit" name="" value="Create Fruit"/>
+        <form class="text newMovie" action="/" method="POST">
+            
+            title:<input type="text" name="title" />
+            "title img":<input type="text" name="title img" />
+            img:<input type="text" name="img" />
+            "release date":<input type="number" name="release date" />
+            description:<input type="text" name="description" />
+            director:<input type="text" name="director" />
+            genre:<input type="text" name="genre" />
+            staring:<input type="text" name="staring" />
+            icon:<input type="text" name="icon" />
+            <input type="submit" name="" value="Add Movie"/>
         </form>
 
 <%- include('../partials/footer.ejs') %>

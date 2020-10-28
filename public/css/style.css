@@ -228,3 +228,9 @@ li:active {
 .userHomeTop {
     font-size: 80px;
 }
+
+/* new movie page*/
+.newMovie {
+  display: flex;
+  flex-direction: column;
+}
