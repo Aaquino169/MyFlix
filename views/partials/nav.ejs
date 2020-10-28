@@ -1,17 +1,16 @@
 <nav>
-    <ul class="right">
-        <li><a href="/movies/new">Add New Movie</a></li>
-        <li><a href="/movies">Movie</a></li>
+    <ul >
+        <li><a href="/movies">Home</a></li>
         <% if (currentUser) { %>
-        <li>Welcome <a href="/"><%= currentUser.username %></a></li>
-        <li>
+        <li>Welcome <a href="/users/home"><%= currentUser.username %></a></li>
+        <li >
           <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out" class="btn-small red" />
+            <input class="btn" type="submit" value="Log Out" class="btn-small red" />
           </form>
         </li>
         <% } else { %>
-        <li><a href="/users/new">Sign Up</a></li>
-        <li><a href="/sessions/new">Log In</a></li>
+        <li ><a href="/users/new">Sign Up</a></li>
+        <li ><a href="/sessions/new">Log In</a></li>
         <% } %>
       </ul>
 </nav>

@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
-<div class="topLogo">
-    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/BC26D77B10047FCE6F1CC1AB419F700447E5C37D352BAD6433B2EF7C068187D0/scale?width=1080" alt="">
+<div class="topLogo"  >
+    <img class="topLogo" src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/BC26D77B10047FCE6F1CC1AB419F700447E5C37D352BAD6433B2EF7C068187D0/scale?width=1080" alt="">
 </div>
 <div class="moviesContainer">
     <% for(let i = 0; i < movie.length; i++){ %>
@@ -9,7 +9,7 @@
                 <img class="iconImg" src=<%= movie[i].icon%> alt="" onclick="location.href='/movies/<%= movie[i].id;%>'">    
                 <div class="text">
                     <h2><%= movie[i].title%></h2>
-                    <button onclick="location.href='/'" type="button">Add to My List</button>
+                    <button class="btn btn-3 btn-sep icon-heart" onclick="location.href='/users/home'" type="button">Add to My List</button>
                 </div>
         </div>
         

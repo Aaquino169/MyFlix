@@ -35,6 +35,7 @@ sessions.post('/', (req, res) => {
 
 sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
+    console.log("check")
     res.redirect('/movies')
   })
 })

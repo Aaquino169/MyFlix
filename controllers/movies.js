@@ -13,6 +13,7 @@ router.get('/',(req,res) => {
         })
     })
 })
+
 //seed
 router.get('/seed',(req,res) => {
     Movie.create([

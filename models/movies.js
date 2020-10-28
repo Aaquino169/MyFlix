@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const movieSchema = new mongoose.Schema({
+export const movieSchema = new mongoose.Schema({
     title:{type:String, require:true},
     "title img":{type:String, require:true},
     img:{type:String, require:true},

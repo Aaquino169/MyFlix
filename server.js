@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 
 const session = require('express-session')
 
+const methodOverride = require('method-override')
 
 require('dotenv').config()
 
@@ -23,6 +24,9 @@ const bodyParser = require('body-parser')
 app.use(express.urlencoded({extended:true}))
 
 app.use(express.static('public'))
+
+app.use(methodOverride('_method'))
+
 
 app.use(
     session({
@@ -49,15 +53,6 @@ app.use('/users', usersController)
 
 const sessionsController = require('./controllers/sessions')
 app.use('/sessions',sessionsController)
-
-app.get('/', (req, res) => {
-    res.render('userHome.ejs', { 
-        currentUser: req.session.currentUser,
-        
-    })
-  })
-
-
 
 
 app.listen(PORT, () => {

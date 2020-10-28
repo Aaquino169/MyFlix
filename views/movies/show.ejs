@@ -2,28 +2,26 @@
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/nav.ejs') %>
     <div class="showContainer" >
-        <div class="topLogo" style="background-image: url(<%= movie.img%>)">
-            <img src=<%=movie['title img']%> alt="">
+        <div>
+            <img class="topLogo" src=<%= movie.img%> alt="">
         </div>
-        <!-- <img class="backgroundImg" src=<%= movie.img%> alt=""> -->
         <div class="showInfo">  
             <div class="text">
-                <h1><%= movie.title%></h1>
-                <h2><%= movie.description%></h2>
+                <div class="titleAndButton">
+                    <img width="250px" src=<%=movie['title img']%>  alt="">
+                    <button class="btn btn-3 btn-sep icon-heart">Add To My List</button>
+                </div>
+                <h3><%= movie.description%></h3>
             </div>
-            <div class="text" id="staffInfo">
-                <fieldset>
-                    Director:
-                    <p><%= movie.director%></p>
-                </fieldset>
-                <fieldset>
-                    Genre:
-                    <h3><%= movie.genre%></h3>
-                </fieldset>
-                <fieldset>
-                    Starring:
-                    <p><%= movie.staring%></p>
-                </fieldset>
+            <div class="text " id="staffInfo">
+                <h2>Director:</h2> 
+                <p><%= movie.director%></p>
+               
+                <h2>Genre:</h2> 
+                <p><%= movie.genre%></p>
+
+                <h2>Starring:</h2>
+                 <p><%= movie.staring%></p>
             </div>
         </div>
     </div>
