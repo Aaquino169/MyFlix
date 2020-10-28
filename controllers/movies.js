@@ -298,6 +298,23 @@ router.get('/:id',(req,res) => {
     })
 })
 
+//edit
+router.get('/:id/edit', (req, res) => {
+    Movie.findById(req.params.id, (err, targetMovie) => {
+      res.render('movies/edit.ejs', {
+        movie: targetMovie,
+        currentUser: req.session.currentUser
+      })
+    })
+  })
+  
+  
+  router.put('/:id', (req, res) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
+      res.redirect('/')
+    })
+  })
+
 //delete route
 router.delete('/:id',(req, res) => {
     Movie.findByIdAndRemove(req.params.id, (err, data) => {

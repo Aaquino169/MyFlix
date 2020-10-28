@@ -10,10 +10,12 @@
                 <div class="text">
                     <h2><%= movie[i].title%></h2>
                     <h2>Favorites: <%= movie[i].favorite%></h2>
-                    <button class="btn btn-3 btn-sep icon-heart" onclick="location.href='/<%= movie[i].id;%>/favorite'" type="button">Favorite</button>
-                    <form action="/<%= movie[i].id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="Remove?" class="btn-small red btn" />
-                    </form>
+                    <% if (currentUser) { %>
+                        <button class="btn btn-3 btn-sep icon-heart" onclick="location.href='/<%= movie[i].id;%>/favorite'" type="button">Favorite</button>
+                        <form action="/<%= movie[i].id%>?_method=DELETE" method="POST">
+                            <input type="submit" value="Remove?" class="btn-small red btn" />
+                        </form>
+                    <% }%> 
                 </div>
         </div>
         
