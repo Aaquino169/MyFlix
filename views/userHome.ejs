@@ -10,7 +10,7 @@
             <% for(let i = 0; i < currentUser.top5.length; i++){ %>
                 <div>
                     <%= currentUser.top5[i]%>
-                    <form action="/sessions?_method=DELETE" method="POST">
+                    <form action="/users?_method=DELETE" method="POST">
                         <input type="submit" value="Remove" class="btn-small red btn" />
                     </form>
                 </div>
@@ -21,7 +21,7 @@
         <% for(let i = 0; i < currentUser.favorites.length; i++){ %>
             <div class="favoriteMovies">
                 <%= currentUser.favorites[i]%>
-                <form action="/?_method=DELETE" method="POST">
+                <form action="/users?_method=DELETE" method="POST">
                     <input type="submit" value="Remove" class="btn-small red btn" />
                 </form>
             </div>

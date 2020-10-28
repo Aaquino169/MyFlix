@@ -9,7 +9,8 @@
                 <img class="iconImg" src=<%= movie[i].icon%> alt="" onclick="location.href='/movies/<%= movie[i].id;%>'">    
                 <div class="text">
                     <h2><%= movie[i].title%></h2>
-                    <button class="btn btn-3 btn-sep icon-heart" onclick="location.href='/users/home'" type="button">Add to My List</button>
+                    <h2>Likes: <%= movie[i].favorite%></h2>
+                    <button class="btn btn-3 btn-sep icon-heart" onclick="location.href='/users/home'" type="button">Favorite</button>
                 </div>
         </div>
         

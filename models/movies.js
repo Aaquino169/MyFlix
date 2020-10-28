@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-
-export const movieSchema = new mongoose.Schema({
+//removed export from ine 4
+const movieSchema = new mongoose.Schema({
     title:{type:String, require:true},
     "title img":{type:String, require:true},
     img:{type:String, require:true},
@@ -10,6 +10,7 @@ export const movieSchema = new mongoose.Schema({
     genre:{type:String, require:true},
     staring:{type:String, require:true},
     icon:{type:String, require:true},
+    "num of favorites":{type:Number}
 })
 
 const Movie = mongoose.model('Movie', movieSchema)

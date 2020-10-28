@@ -4,6 +4,8 @@ const router = express.Router()
 
 const Movie = require('../models/movies')
 
+const User = require('../models/users')
+
 //index
 router.get('/',(req,res) => {
     Movie.find({},(error,allMovies) => {
@@ -13,6 +15,23 @@ router.get('/',(req,res) => {
         })
     })
 })
+//create
+router.get('/new', (req, res) => {
+	res.render('movies/new.ejs', { 
+        currentUser: req.session.currentUser 
+    })
+})
+
+router.post('/', (req, res) => {
+	Movie.create(req.body, (error, createdFruit) => {
+		res.redirect('/movie')
+	})
+})
+// router.post('/addFavorite', (req,res) => {
+//     User.favorites.create(req.body, (err,favoriteMovie) => {
+//         res.redirect('/user/home')
+//     })
+// })
 
 //seed
 router.get('/seed',(req,res) => {
@@ -27,6 +46,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johanson, Jeremy Runner',
             icon:'https://i.pinimg.com/originals/18/a1/39/18a139c5af7c80f8cf7ff4c930660a5a.jpg',
+            "num of favorites":0
         },
         {
             title:'Avengers Age Of Ultron',
@@ -38,6 +58,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johanson, Jeremy Runner',
             icon:'https://i.pinimg.com/originals/d9/38/9f/d9389fed9de03201b5ab200480e7ec25.jpg',
+            "num of favorites":0
         },
         {
             title:'Avengers Infinity War',
@@ -49,6 +70,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johanson, Jeremy Runner',
             icon:'https://i.pinimg.com/originals/97/48/82/9748827b7898a1398704def653fe647c.jpg',
+            "num of favorites":0
         },
         {
             title:'Avengers Endgame',
@@ -60,6 +82,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johanson, Jeremy Runner',
             icon:'https://www.designbolts.com/wp-content/uploads/2019/01/Avengers-Endgame-2019-Desktop-Wallpapers-HD-1.jpg',
+            "num of favorites":0
         },
         {
             title:'Captain Marvel',
@@ -71,6 +94,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Brie Larson, Samuel Jackson, Ben Mendelsohn, Djimon Hounsou, Lee Pace, Lashana Lynch',
             icon:'https://www.designbolts.com/wp-content/uploads/2019/02/Captain-Marvel-Movie-2019-HD-Wallpaper-2-1.jpg',
+            "num of favorites":0
         },
         {
             title:'Ant-Man',
@@ -82,6 +106,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Comedy, Fantasy, Superhero, Action-Adventure',
             staring:'Paul Rudd, Evangeline Lilly, Corey Stoll, Bobby Cannavale, Michael Pena, Tip Harris',
             icon:'https://wallpapercave.com/wp/wp1810492.jpg',
+            "num of favorites":0
         },
         {
             title:'Ant-Man and The Wasp',
@@ -93,6 +118,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Comedy, Fantasy, Superhero, Action-Adventure',
             staring:'Paul Rudd, Evangeline Lilly Michael Pena, Walton Goggin, Hannah John-Kamen, David Dastmalchian',
             icon:'https://i.pinimg.com/originals/24/00/c5/2400c5d72ffd2c24ddccbf5bf7b44767.jpg',
+            "num of favorites":0
         },
         {
             title:'Black Panther',
@@ -104,6 +130,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Chadwick Boseman, Michael Jordan, Lupita Myongo, Danai Gurira, Martin Freeman, Daniel Kaluuya',
             icon:'https://justformoviefreaks.in/wp-content/uploads/2019/04/black-panther-movie-wallpaper.png',
+            "num of favorites":0
         },
         {
             title:'Thor',
@@ -115,6 +142,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Chris Hemsworth, Natalie Portman, Tom Hiddleston, Anthony Hopkins, Stellan Skarsgard, Kat Dennings',
             icon:'https://wallpapercave.com/wp/qXb0oh4.jpg',
+            "num of favorites":0
         },
         {
             title:'Thor: The Dark World',
@@ -126,6 +154,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Fantasy, Superhero, Action-Adventure',
             staring:'Chris Hemsworth, Natalie Portman, Tom Hiddleston, Anthony Hopkins, Stellan Skarsgard, Rene Russo',
             icon:'https://wallpapercave.com/wp/wp3079593.jpg',
+            "num of favorites":0
         },
         {
             title:'Thor: Ragnarok',
@@ -137,6 +166,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Comedy, Fantasy, Superhero, Action-Adventure',
             staring:'Chris Hemsworth, Tom Hiddleston, Cate Blanchett, Idris Elba, Jeff Goldblum, Tessa Thompson',
             icon:'https://cutewallpaper.org/21/thor-ragnarok-wallpaper-valkyrie/Thor-Ragnarok-Loki-Wallpaper-Ryanmartinproductions.com.jpg',
+            "num of favorites":0
         },
         {
             title:'Doctor Strange',
@@ -148,6 +178,7 @@ router.get('/seed',(req,res) => {
             genre:'Fantasy, Superhero, Action-Adventure',
             staring:'Benedict Cumberbatch, Chiwetel Ejiofor, Rachel McAdams, Benedict Wong, Michael Stuhbarg, Benjamin Bratt',
             icon:'https://www.comicbookmovie.com/images/wallpaper/288_988.jpg',
+            "num of favorites":0
         },
         {
             title:'Guardians Of the Galaxy',
@@ -159,6 +190,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Comedy, Fantasy, Superhero, Action-Adventure',
             staring:'Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel, Bradley Cooper, Lee Pace',
             icon:'https://wallpapercave.com/wp/wp1814954.jpg',
+            "num of favorites":0
         },
         {
             title:'Guardians Of The Galaxy Vol.2',
@@ -170,6 +202,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Comedy, Fantasy, Superhero, Action-Adventure',
             staring:'Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel, Bradley Cooper, Lee Pace',
             icon:'https://images.alphacoders.com/900/900383.jpg',
+            "num of favorites":0
         },
         {
             title:'Captain America: The First Avenger',
@@ -181,6 +214,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Chris Evans, Tommy Jones, Hugo Weaving, Hayley Atwell, Sebastian Stan, Dominic Cooper',
             icon:'https://wallpaperaccess.com/full/1112990.jpg',
+            "num of favorites":0
         },
         {
             title:'Captain America: The Winter Soldier',
@@ -192,6 +226,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Chris Evans, Sebastian Stan, Scarlett Johansson, Anthony Mackie, Cobie Smulders, Frank Grillo',
             icon:'https://images8.alphacoders.com/453/thumb-1920-453112.jpg',
+            "num of favorites":0
         },
         {
             title:'Captain America: Civil War',
@@ -203,6 +238,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Chris Evans, Scarlett Johansson, Sebastian Stan, Anthony Mackie, Don Cheadle',
             icon:'https://i.pinimg.com/originals/79/b8/45/79b84509433202e7d0895ce430252122.jpg',
+            "num of favorites":0
         },
         {
             title:'Iron Man',
@@ -214,6 +250,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Terrence Howard, Jeff Bridges, Gwyneth Paltrow, Leslie Bibb, Shaun Toub',
             icon:'https://wallpapercave.com/wp/wp2547005.jpg',
+            "num of favorites":0
         },
         {
             title:'Iron Man 2',
@@ -225,6 +262,7 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Gwyneth Paltrow, Don Cheadle, Scarlett Johansson, Sam Rockwell, Clark Gregg',
             icon:'https://wallpapercave.com/wp/AFtCNLt.jpg',
+            "num of favorites":0
         },
         {
             title:'Iron Man 3',
@@ -236,11 +274,14 @@ router.get('/seed',(req,res) => {
             genre:'Science Fiction, Superhero, Action-Adventure',
             staring:'Robert Downey Jr., Gwyneth Paltrow, Don Cheadle, Guy Pearce, Rebecca Hall, Stephanie Szostak',
             icon:'https://wallpaperaccess.com/full/259316.jpg',
+            "num of favorites":0
         }
     ], (err,data) => {
         res.redirect('/movies')
     })
 })
+
+
 
 //show
 router.get('/:id',(req,res) => {

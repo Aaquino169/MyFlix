@@ -15,13 +15,14 @@ users.post('/', (req, res) => {
   })
 })
 
-users.get('/home', (req, res) => {
-  if(req.session.currentUser) {
-    res.render('userHome.ejs', {
-      currentUser: req.session.currentUser,
-    })
-  }else{
-    res.redirect('/sessions/new')
-  }
-})
+// users.get('/home', (req, res) => {
+//   if(req.session.currentUser) {
+//     res.render('userHome.ejs', {
+//       currentUser: req.session.currentUser,
+//     })
+//   }else{
+//     res.redirect('/sessions/new')
+//   }
+// })
+
 module.exports = users

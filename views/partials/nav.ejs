@@ -2,7 +2,8 @@
     <ul >
         <li><a href="/movies">Home</a></li>
         <% if (currentUser) { %>
-        <li>Welcome <a href="/users/home"><%= currentUser.username %></a></li>
+        <li>Welcome <%= currentUser.username %></li>
+        <li><a href="/movies/new">Add A Movie</a></li>
         <li >
           <form action="/sessions?_method=DELETE" method="POST">
             <input class="btn" type="submit" value="Log Out" class="btn-small red" />
