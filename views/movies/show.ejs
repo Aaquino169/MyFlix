@@ -9,8 +9,10 @@
             <div class="text">
                 <div class="titleAndButton">
                     <img width="250px" src=<%=movie['title img']%>  alt="">
+                    <% if (currentUser) { %>
                     <button class="btn btn-3 btn-sep icon-heart">Favorite</button>
                     <a class="btn-small red btn" href="/<%= movie.id%>/edit">Edit Info</a>
+                    <% } %>
                 </div>
                 <h3><%= movie.description%></h3>
             </div>
