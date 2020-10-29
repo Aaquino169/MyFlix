@@ -2,18 +2,17 @@
 <%- include('../partials/nav.ejs') %>
 
         <h1>Edit Info</h1>
-        <form class="text newMovie" action="/<%= movie.id %>?_method=PUT" method="POST">
-            
-            title:<input type="text" name="title" value="<%= movie.title%>" />
-            "title img":<input type="text" name="title img" value="<%= movie['title img']%>"/>
-            img:<input type="text" name="img" value="<%= movie.img%>"/>
-            "release date":<input type="number" name="release date" value="<%= movie['release date']%>"/>
-            description:<input type="text" name="description" value="<%= movie.description%>"/>
-            director:<input type="text" name="director" value="<%= movie.director%>" />
-            genre:<input type="text" name="genre" value="<%= movie.genre%>"/>
-            staring:<input type="text" name="staring" value="<%= movie.staring%>"/>
-            icon:<input type="text" name="icon" value="<%= movie.icon%>"/>
+        <form class="text form" action="/<%= movie.id %>?_method=PUT" method="POST">
+            Title:<input type="text" name="title" value="<%= movie.title%>" />
+            Title Image:<input type="text" name="title img" value="<%= movie['title img']%>"/>
+            Image:<input type="text" name="img" value="<%= movie.img%>"/>
+            Release Date:<input type="number" name="release date" value="<%= movie['release date']%>"/>
+            Description:<input type="text" name="description" value="<%= movie.description%>"/>
+            Director:<input type="text" name="director" value="<%= movie.director%>" />
+            Genre:<input type="text" name="genre" value="<%= movie.genre%>"/>
+            Staring:<input type="text" name="staring" value="<%= movie.staring%>"/>
+            Icon:<input type="text" name="icon" value="<%= movie.icon%>"/>
             <input type="submit" name="" value="Confirm Changes"/>
         </form>
-
+        
 <%- include('../partials/footer.ejs') %>

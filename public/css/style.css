@@ -235,10 +235,13 @@ li:active {
 }
 
 /* new movie page*/
-.newMovie {
+.form {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  margin: 100px 300px 100px 300px;
 }
+/* footer */
 .footer {
   margin: 70px 30px;
 }
