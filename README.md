@@ -6,9 +6,19 @@ This project is a web app created using HTML5,Javascript,Mongodb,Mongoose,Node.j
 
 Link: <https://my-flix-0169.herokuapp.com/>
 
+**Things To Add**
+
+-Set up profile page.
+
+-User will be able to add movies to there profile page.
+
+-Users will be able to favorite a movie
+
+-Display how many people favorited the movie
+
 **Wirerames**
 
-Link: <>
+Link: <https://github.com/Aaquino169/MyFlix/blob/61d16ce675919ba443afe9052b80a21a714481e1/Wireframe.jpg>
 
 **User Story**
 
