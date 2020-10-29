@@ -2,9 +2,14 @@
 nav: https://scottyzen.com/?cp 
 btn:https://codepen.io/monchito/full/lxqeu
 */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+
+*{
+  font-family: 'Nunito', sans-serif;
+}
 
 body {
-    background-color: black;
+  background-color: black;
 }
 h2 {
     padding: 30px 100px;
@@ -233,4 +238,7 @@ li:active {
 .newMovie {
   display: flex;
   flex-direction: column;
+}
+.footer {
+  margin: 70px 30px;
 }
